@@ -1,9 +1,9 @@
 "use server";
 import { v4 as uuidv4 } from "uuid";
 
-const CLIENT_ID = process.env.Next_CLIENT_ID;
-const CLIENT_SECRET = process.env.Next_CLIENT_SECRET;
-const REDIRECT_URI = process.env.Next_REDIRECT_URI;
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.SECRET_ID;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 const AUTH_URL = "https://auth.noones.com/oauth2/authorize";
 const TOKEN_URL = "https://auth.noones.com/oauth2/token";
 
