@@ -7,11 +7,14 @@ const AUTH_URL = "https://auth.noones.com/oauth2/authorize";
 const TOKEN_URL = "https://auth.noones.com/oauth2/token";
 
 export const generateAuthUrl = async (scopes: string[]) => {
-  const url = new URL(AUTH_URL);
-  url.searchParams.append("client_id", CLIENT_ID as string);
-  url.searchParams.append("redirect_uri", REDIRECT_URI as string);
-  url.searchParams.append("response_type", "code");
-  url.searchParams.append("scope", scopes.join(" "));
+  const url = new URL(
+    `https://auth.noones.com/oauth2/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${scopes.join("+")}`,
+  );
+  // url.searchParams.append("response_type", "code");
+  // url.searchParams.append("client_id", CLIENT_ID as string);
+  // url.searchParams.append("redirect_uri", REDIRECT_URI as string);
+  // url.searchParams.append("scope", scopes.join(" "));
+  console.log(url.toString());
 
   return url.toString();
 };
