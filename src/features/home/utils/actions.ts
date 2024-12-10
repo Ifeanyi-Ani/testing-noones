@@ -1,5 +1,4 @@
 "use server";
-import { v4 as uuidv4 } from "uuid";
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.SECRET_ID;
@@ -8,14 +7,11 @@ const AUTH_URL = "https://auth.noones.com/oauth2/authorize";
 const TOKEN_URL = "https://auth.noones.com/oauth2/token";
 
 export const generateAuthUrl = async (scopes: string[]) => {
-  console.log(AUTH_URL, { CLIENT_ID });
-  const state = uuidv4();
   const url = new URL(AUTH_URL);
   url.searchParams.append("client_id", CLIENT_ID as string);
   url.searchParams.append("redirect_uri", REDIRECT_URI as string);
   url.searchParams.append("response_type", "code");
   url.searchParams.append("scope", scopes.join(" "));
-  url.searchParams.append("state", state);
 
   return url.toString();
 };
