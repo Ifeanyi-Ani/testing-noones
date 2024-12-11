@@ -3,7 +3,7 @@
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.SECRET_ID;
 const REDIRECT_URI = process.env.REDIRECT_URI;
-const AUTH_URL = "https://auth.noones.com/oauth2/authorize";
+// const AUTH_URL = "https://auth.noones.com/oauth2/authorize";
 const TOKEN_URL = "https://auth.noones.com/oauth2/token";
 
 export const generateAuthUrl = async (scopes: string[]) => {
